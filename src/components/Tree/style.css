@@ -1,0 +1,17 @@
+.tree-node {
+  line-height: 1.5;
+}
+
+.toggle {
+  display: inline-block;
+  width: 16px;
+  text-align: center;
+}
+
+.label:hover {
+  color: #007bff;
+}
+.tree {
+  font-family: Arial, sans-serif;
+  user-select: none;
+}

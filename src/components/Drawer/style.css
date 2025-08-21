@@ -1,0 +1,58 @@
+/* 抽屉的基础样式 */
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 300px;
+  height: 100%;
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transform: translateX(100%); /* 默认在右边隐藏 */
+  transition: transform 0.3s ease; /* 默认的过渡效果 */
+}
+
+/* 抽屉内容 */
+.drawer-content {
+  padding: 20px;
+  display: flex;
+  flex-direction: column; /* 设置为垂直排列 */
+  justify-content: flex-start; /* 从上到下排列 */
+  height: 100%;
+}
+
+/* 按钮样式 */
+button {
+  padding: 10px;
+  margin: 10px 0;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.close-btn {
+  align-self: flex-end;
+  background-color: red;
+}
+
+.drawer-content p {
+  flex-grow: 1;
+}
+
+/* 过渡效果 */
+.drawer-enter-active, .drawer-leave-active {
+  transition: transform 0.3s ease; /* 设置进入和离开的过渡时间 */
+}
+
+.drawer-enter, .drawer-leave-to /* .drawer-leave-active 在 Vue 2.x 中是这样的 */ {
+  transform: translateX(100%); /* 初始位置在右边 */
+}
+
+.drawer-enter-to, .drawer-leave {
+  transform: translateX(0); /* 过渡到显示位置 */
+}

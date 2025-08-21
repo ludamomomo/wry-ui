@@ -1,0 +1,17 @@
+.collapse-container {
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.collapse-header {
+  background-color: #f1f1f1;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.collapse-content {
+  padding: 10px;
+  background-color: #fafafa;
+}

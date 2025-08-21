@@ -1,0 +1,11 @@
+.button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+}
+
+.btn-primary { background: #409eff; color: white; }
+.btn-secondary { background: #909399; color: white; }
+.btn-disabled { background: #dcdfe6; cursor: not-allowed; }

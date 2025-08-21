@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowJs": true,
+    "jsx": "preserve",
+    "declaration": true,         // 开启类型声明文件生成
+    "declarationDir": "dist",    // 输出类型声明文件到 dist
+    "outDir": "dist",            // 输出编译后的 JavaScript 文件到 dist
+    "skipLibCheck": true,
+    "composite": true            // 启用 composite 增量构建（如果有多个配置文件）
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue"               // 确保包括 Vue 文件
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}

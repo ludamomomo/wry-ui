@@ -1,0 +1,57 @@
+.input-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.input-field,
+.textarea-field {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  outline: none;
+  font-size: 14px;
+}
+
+.textarea-field {
+  resize: none;
+  min-height: 60px;
+}
+
+/* 不同大小 */
+.input-small .input-field,
+.input-small .textarea-field {
+  font-size: 12px;
+  padding: 4px 8px;
+}
+
+.input-medium .input-field,
+.input-medium .textarea-field {
+  font-size: 14px;
+  padding: 6px 10px;
+}
+
+.input-large .input-field,
+.input-large .textarea-field {
+  font-size: 16px;
+  padding: 8px 12px;
+}
+
+/* 清空按钮 */
+.btn-clear,
+.btn-toggle {
+  position: absolute;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-clear {
+  color: #999;
+}
+
+.btn-toggle {
+  right: 28px;
+}
