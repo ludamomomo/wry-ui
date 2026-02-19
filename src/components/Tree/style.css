@@ -1,17 +1,116 @@
-.tree-node {
-  line-height: 1.5;
+/* Tree 容器 */
+.wry-tree {
+  position: relative;
+  cursor: default;
+  background: #fff;
+  color: #606266;
+  font-size: 14px;
 }
 
-.toggle {
+/* Tree 节点 */
+.wry-tree-node {
+  white-space: nowrap;
+  outline: none;
+}
+
+/* Tree 节点内容 */
+.wry-tree-node__content {
+  display: flex;
+  align-items: center;
+  height: 26px;
+  cursor: pointer;
+  padding-right: 8px;
+  transition: background-color 0.3s;
+}
+
+.wry-tree-node__content:hover {
+  background-color: #f5f7fa;
+}
+
+.wry-tree-node.is-current > .wry-tree-node__content {
+  background-color: #ecf5ff;
+  color: #409eff;
+}
+
+.wry-tree-node.is-disabled > .wry-tree-node__content {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+.wry-tree-node.is-disabled > .wry-tree-node__content:hover {
+  background-color: transparent;
+}
+
+/* 展开/折叠图标 */
+.wry-tree-node__expand-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  flex-shrink: 0;
+}
+
+.wry-tree-node__expand-icon.is-expanded {
+  transform: rotate(90deg);
+}
+
+.wry-tree-node__expand-icon.is-leaf {
+  cursor: default;
+  opacity: 0;
+}
+
+.wry-tree-node__placeholder {
+  width: 12px;
   display: inline-block;
-  width: 16px;
-  text-align: center;
 }
 
-.label:hover {
-  color: #007bff;
+/* 复选框 */
+.wry-tree-node__checkbox {
+  margin: 0 8px 0 0;
+  cursor: pointer;
+  flex-shrink: 0;
 }
-.tree {
-  font-family: Arial, sans-serif;
-  user-select: none;
+
+.wry-tree-node__checkbox:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 节点标签 */
+.wry-tree-node__label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* 子节点容器 */
+.wry-tree-node__children {
+  overflow: hidden;
+}
+
+/* 展开/折叠动画 */
+.wry-tree-node-expand-enter-active,
+.wry-tree-node-expand-leave-active {
+  transition: all 0.3s ease;
+}
+
+.wry-tree-node-expand-enter-from,
+.wry-tree-node-expand-leave-to {
+  max-height: 0;
+  opacity: 0;
+  transform: scaleY(0);
+  transform-origin: top;
+}
+
+.wry-tree-node-expand-enter-to,
+.wry-tree-node-expand-leave-from {
+  max-height: 1000px;
+  opacity: 1;
+  transform: scaleY(1);
 }

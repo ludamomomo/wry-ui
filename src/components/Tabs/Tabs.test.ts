@@ -11,6 +11,7 @@ describe('Tabs.vue', () => {
 
   it('renders tabs correctly', () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs }
     })
 
@@ -21,6 +22,7 @@ describe('Tabs.vue', () => {
 
   it('sets initialTab if provided', () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs, initialTab: 'Profile' }
     })
 
@@ -29,6 +31,7 @@ describe('Tabs.vue', () => {
 
   it('defaults to first tab if initialTab not provided', () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs }
     })
 
@@ -37,6 +40,7 @@ describe('Tabs.vue', () => {
 
   it('changes activeTab when clicking another tab', async () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs }
     })
 
@@ -48,6 +52,7 @@ describe('Tabs.vue', () => {
 
   it('updates indicator position and width on tab change', async () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs }
     })
 
@@ -63,6 +68,7 @@ describe('Tabs.vue', () => {
 
   it('renders slot content with activeTab passed', async () => {
     const wrapper = mount(Tabs, {
+      //@ts-ignore
       props: { tabs },
       slots: {
         default: `<template #default="{ activeTab }"><div class="slot-content">Active: {{ activeTab }}</div></template>`

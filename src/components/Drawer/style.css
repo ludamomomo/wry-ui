@@ -1,58 +1,161 @@
-/* 抽屉的基础样式 */
-.drawer {
+/* Drawer 遮罩层 */
+.wry-drawer__mask {
   position: fixed;
   top: 0;
-  right: 0;
-  width: 300px;
+  left: 0;
+  width: 100%;
   height: 100%;
-  background-color: white;
-  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transform: translateX(100%); /* 默认在右边隐藏 */
-  transition: transform 0.3s ease; /* 默认的过渡效果 */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
 }
 
-/* 抽屉内容 */
-.drawer-content {
-  padding: 20px;
+/* Drawer 容器 */
+.wry-drawer {
+  position: fixed;
+  background-color: #ffffff;
+  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2), 
+              0 16px 24px 2px rgba(0, 0, 0, 0.14), 
+              0 6px 30px 5px rgba(0, 0, 0, 0.12);
+  z-index: 2001;
   display: flex;
-  flex-direction: column; /* 设置为垂直排列 */
-  justify-content: flex-start; /* 从上到下排列 */
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* 不同方向的 Drawer */
+.wry-drawer--rtl {
+  top: 0;
+  right: 0;
   height: 100%;
 }
 
-/* 按钮样式 */
-button {
-  padding: 10px;
-  margin: 10px 0;
-  background-color: #007bff;
-  color: white;
+.wry-drawer--ltr {
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+.wry-drawer--ttb {
+  left: 0;
+  top: 0;
+  width: 100%;
+}
+
+.wry-drawer--btt {
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Drawer 头部 */
+.wry-drawer__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.wry-drawer__title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  line-height: 1;
+}
+
+.wry-drawer__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
   border: none;
+  background: transparent;
   cursor: pointer;
+  font-size: 16px;
+  color: #909399;
+  border-radius: 4px;
+  transition: all 0.3s;
+  padding: 0;
 }
 
-button:hover {
-  background-color: #0056b3;
+.wry-drawer__close:hover {
+  background-color: #f5f7fa;
+  color: #409eff;
 }
 
-.close-btn {
-  align-self: flex-end;
-  background-color: red;
+.wry-drawer__close-icon {
+  font-size: 16px;
+  line-height: 1;
 }
 
-.drawer-content p {
-  flex-grow: 1;
+/* Drawer 内容 */
+.wry-drawer__body {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
 }
 
-/* 过渡效果 */
-.drawer-enter-active, .drawer-leave-active {
-  transition: transform 0.3s ease; /* 设置进入和离开的过渡时间 */
+/* Drawer 底部 */
+.wry-drawer__footer {
+  padding: 20px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
-.drawer-enter, .drawer-leave-to /* .drawer-leave-active 在 Vue 2.x 中是这样的 */ {
-  transform: translateX(100%); /* 初始位置在右边 */
+/* 遮罩层过渡动画 */
+.wry-drawer-fade-enter-active,
+.wry-drawer-fade-leave-active {
+  transition: opacity 0.3s;
 }
 
-.drawer-enter-to, .drawer-leave {
-  transform: translateX(0); /* 过渡到显示位置 */
+.wry-drawer-fade-enter-from,
+.wry-drawer-fade-leave-to {
+  opacity: 0;
+}
+
+/* RTL 方向过渡动画（从右侧滑入） */
+.wry-drawer-rtl-enter-active,
+.wry-drawer-rtl-leave-active {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-drawer-rtl-enter-from,
+.wry-drawer-rtl-leave-to {
+  transform: translateX(100%);
+}
+
+/* LTR 方向过渡动画（从左侧滑入） */
+.wry-drawer-ltr-enter-active,
+.wry-drawer-ltr-leave-active {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-drawer-ltr-enter-from,
+.wry-drawer-ltr-leave-to {
+  transform: translateX(-100%);
+}
+
+/* TTB 方向过渡动画（从上方滑入） */
+.wry-drawer-ttb-enter-active,
+.wry-drawer-ttb-leave-active {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-drawer-ttb-enter-from,
+.wry-drawer-ttb-leave-to {
+  transform: translateY(-100%);
+}
+
+/* BTT 方向过渡动画（从下方滑入） */
+.wry-drawer-btt-enter-active,
+.wry-drawer-btt-leave-active {
+  transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-drawer-btt-enter-from,
+.wry-drawer-btt-leave-to {
+  transform: translateY(100%);
 }

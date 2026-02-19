@@ -1,35 +1,215 @@
-.dropdown {
-  position: relative;
+/* Dropdown 容器 */
+.wry-dropdown {
   display: inline-block;
+  position: relative;
+  color: #606266;
+  font-size: 14px;
 }
 
-.dropdown-button {
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px 20px;
+/* Dropdown 触发器 */
+.wry-dropdown__trigger {
+  display: inline-block;
+  outline: none;
+}
+
+.wry-dropdown__trigger.is-split {
+  display: inline-flex;
+}
+
+.wry-dropdown__split-wrapper {
+  display: inline-flex;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid #dcdfe6;
+}
+
+.wry-dropdown__trigger.is-split .wry-dropdown__button {
   border: none;
+  border-radius: 0;
+}
+
+/* Dropdown 按钮 */
+.wry-dropdown__button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
-}
-
-.dropdown-button:hover {
-  background-color: #45a049;
-}
-
-.dropdown-menu {
-  position: absolute;
-  list-style: none;
-  padding: 0;
+  background: #fff;
+  border: 1px solid #dcdfe6;
+  color: #606266;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
   margin: 0;
-  background-color: #f9f9f9;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  min-width: 160px;
+  transition: all 0.3s;
+  font-weight: 500;
+  user-select: none;
+  vertical-align: middle;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
 }
 
-.dropdown-item {
-  padding: 8px 16px;
+.wry-dropdown__button.is-arrow {
+  width: 36px;
+  padding: 0;
+}
+
+.wry-dropdown__button:hover,
+.wry-dropdown__button:focus {
+  color: #409eff;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
+
+/* 按钮尺寸 */
+.wry-dropdown__button--large {
+  padding: 12px 19px;
+  font-size: 14px;
+  border-radius: 4px;
+}
+
+.wry-dropdown__button--small {
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: 3px;
+}
+
+.wry-dropdown__button--type-default {
+  background-color: #fff;
+  border-color: #dcdfe6;
+  color: #606266;
+}
+
+.wry-dropdown__button--type-primary {
+  background-color: #409eff;
+  border-color: #409eff;
+  color: #fff;
+}
+
+.wry-dropdown__button--type-success {
+  background-color: #67c23a;
+  border-color: #67c23a;
+  color: #fff;
+}
+
+.wry-dropdown__button--type-warning {
+  background-color: #e6a23c;
+  border-color: #e6a23c;
+  color: #fff;
+}
+
+.wry-dropdown__button--type-danger {
+  background-color: #f56c6c;
+  border-color: #f56c6c;
+  color: #fff;
+}
+
+.wry-dropdown__button--type-info {
+  background-color: #909399;
+  border-color: #909399;
+  color: #fff;
+}
+
+/* Dropdown 图标 */
+.wry-dropdown__icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 12px;
+  transition: transform 0.3s;
+}
+
+.wry-dropdown__icon.is-rotate {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Popper */
+.wry-dropdown__popper {
+  position: absolute;
+  z-index: 2000;
+  border: 1px solid #e4e7ed;
+  border-radius: 4px;
+  background-color: #fff;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+  margin: 5px 0;
+}
+
+/* Dropdown 菜单 */
+.wry-dropdown__menu {
+  list-style: none;
+  padding: 5px 0;
+  margin: 0;
+  min-width: 100px;
+}
+
+/* Dropdown 菜单项 */
+.wry-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 16px;
+  line-height: 22px;
+  color: #606266;
   cursor: pointer;
+  outline: none;
+  font-size: 14px;
+  white-space: nowrap;
+  transition: all 0.3s;
 }
 
-.dropdown-item:hover {
-  background-color: #ddd;
+.wry-dropdown__item:not(.is-disabled):hover,
+.wry-dropdown__item:not(.is-disabled):focus {
+  background-color: #ecf5ff;
+  color: #409eff;
+}
+
+/* 禁用状态 */
+.wry-dropdown__item.is-disabled {
+  cursor: not-allowed;
+  color: #c0c4cc;
+  background-color: transparent;
+}
+
+/* 分隔线 */
+.wry-dropdown__item.is-divided {
+  border-top: 1px solid #ebeef5;
+  margin-top: 5px;
+  padding-top: 10px;
+}
+
+.wry-dropdown__item.is-divided:first-child {
+  border-top: none;
+  margin-top: 0;
+  padding-top: 5px;
+}
+
+/* 菜单项图标 */
+.wry-dropdown__item-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* 菜单项文本 */
+.wry-dropdown__item-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 动画 */
+.wry-dropdown-fade-enter-active,
+.wry-dropdown-fade-leave-active {
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.wry-dropdown-fade-enter-from,
+.wry-dropdown-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
 }

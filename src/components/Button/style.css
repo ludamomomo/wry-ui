@@ -1,11 +1,326 @@
-.button {
-  padding: 10px 20px;
-  font-size: 14px;
-  border-radius: 5px;
+/* Button 基础样式 */
+.wry-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  line-height: 1;
+  white-space: nowrap;
   cursor: pointer;
-  border: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
+  user-select: none;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  border: 1px solid transparent;
+  font-weight: 500;
 }
 
-.btn-primary { background: #409eff; color: white; }
-.btn-secondary { background: #909399; color: white; }
-.btn-disabled { background: #dcdfe6; cursor: not-allowed; }
+/* 尺寸 */
+.wry-button--size-large {
+  padding: 12px 19px;
+  font-size: 14px;
+  border-radius: 4px;
+  height: 40px;
+}
+
+.wry-button--size-default {
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 4px;
+  height: 32px;
+}
+
+.wry-button--size-small {
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: 3px;
+  height: 24px;
+}
+
+/* 类型样式 - Default */
+.wry-button--default:not(.is-text):not(.is-link) {
+  background-color: #ffffff;
+  color: #606266;
+  border-color: #dcdfe6;
+}
+
+.wry-button--default:not(.is-text):not(.is-link):hover,
+.wry-button--default:not(.is-text):not(.is-link):focus {
+  color: #409eff;
+  border-color: #c6e2ff;
+  background-color: #ecf5ff;
+}
+
+/* Primary */
+.wry-button--primary {
+  background-color: #409eff;
+  color: #ffffff;
+  border-color: #409eff;
+}
+
+.wry-button--primary:hover,
+.wry-button--primary:focus {
+  background-color: #66b1ff;
+  border-color: #66b1ff;
+}
+
+.wry-button--primary:active {
+  background-color: #3a8ee6;
+  border-color: #3a8ee6;
+}
+
+/* Success */
+.wry-button--success {
+  background-color: #67c23a;
+  color: #ffffff;
+  border-color: #67c23a;
+}
+
+.wry-button--success:hover,
+.wry-button--success:focus {
+  background-color: #85ce61;
+  border-color: #85ce61;
+}
+
+.wry-button--success:active {
+  background-color: #5daf34;
+  border-color: #5daf34;
+}
+
+/* Warning */
+.wry-button--warning {
+  background-color: #e6a23c;
+  color: #ffffff;
+  border-color: #e6a23c;
+}
+
+.wry-button--warning:hover,
+.wry-button--warning:focus {
+  background-color: #ebb563;
+  border-color: #ebb563;
+}
+
+.wry-button--warning:active {
+  background-color: #cf9236;
+  border-color: #cf9236;
+}
+
+/* Danger */
+.wry-button--danger {
+  background-color: #f56c6c;
+  color: #ffffff;
+  border-color: #f56c6c;
+}
+
+.wry-button--danger:hover,
+.wry-button--danger:focus {
+  background-color: #f78989;
+  border-color: #f78989;
+}
+
+.wry-button--danger:active {
+  background-color: #dd6161;
+  border-color: #dd6161;
+}
+
+/* Info */
+.wry-button--info {
+  background-color: #909399;
+  color: #ffffff;
+  border-color: #909399;
+}
+
+.wry-button--info:hover,
+.wry-button--info:focus {
+  background-color: #a6a9ad;
+  border-color: #a6a9ad;
+}
+
+.wry-button--info:active {
+  background-color: #82848a;
+  border-color: #82848a;
+}
+
+/* Plain 朴素按钮 */
+.wry-button.is-plain {
+  background-color: #ffffff;
+}
+
+.wry-button--primary.is-plain {
+  color: #409eff;
+  background: #ecf5ff;
+  border-color: #b3d8ff;
+}
+
+.wry-button--primary.is-plain:hover,
+.wry-button--primary.is-plain:focus {
+  background: #409eff;
+  border-color: #409eff;
+  color: #fff;
+}
+
+.wry-button--success.is-plain {
+  color: #67c23a;
+  background: #f0f9eb;
+  border-color: #c2e7b0;
+}
+
+.wry-button--success.is-plain:hover,
+.wry-button--success.is-plain:focus {
+  background: #67c23a;
+  border-color: #67c23a;
+  color: #fff;
+}
+
+.wry-button--warning.is-plain {
+  color: #e6a23c;
+  background: #fdf6ec;
+  border-color: #f5dab1;
+}
+
+.wry-button--warning.is-plain:hover,
+.wry-button--warning.is-plain:focus {
+  background: #e6a23c;
+  border-color: #e6a23c;
+  color: #fff;
+}
+
+.wry-button--danger.is-plain {
+  color: #f56c6c;
+  background: #fef0f0;
+  border-color: #fbc4c4;
+}
+
+.wry-button--danger.is-plain:hover,
+.wry-button--danger.is-plain:focus {
+  background: #f56c6c;
+  border-color: #f56c6c;
+  color: #fff;
+}
+
+.wry-button--info.is-plain {
+  color: #909399;
+  background: #f4f4f5;
+  border-color: #d3d4d6;
+}
+
+.wry-button--info.is-plain:hover,
+.wry-button--info.is-plain:focus {
+  background: #909399;
+  border-color: #909399;
+  color: #fff;
+}
+
+/* Round 圆角按钮 */
+.wry-button.is-round {
+  border-radius: 20px;
+}
+
+/* Circle 圆形按钮 */
+.wry-button.is-circle {
+  border-radius: 50%;
+  padding: 8px;
+  width: 32px;
+  height: 32px;
+}
+
+.wry-button--size-large.is-circle {
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+}
+
+.wry-button--size-small.is-circle {
+  width: 24px;
+  height: 24px;
+  padding: 5px;
+}
+
+/* Text 文字按钮 */
+.wry-button.is-text,
+.wry-button--text {
+  border-color: transparent;
+  background-color: transparent;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.wry-button--text.wry-button--primary {
+  color: #409eff;
+}
+
+.wry-button--text.wry-button--success {
+  color: #67c23a;
+}
+
+.wry-button--text.wry-button--warning {
+  color: #e6a23c;
+}
+
+.wry-button--text.wry-button--danger {
+  color: #f56c6c;
+}
+
+.wry-button--text.wry-button--info {
+  color: #909399;
+}
+
+.wry-button.is-text:hover,
+.wry-button--text:hover {
+  background-color: transparent;
+  opacity: 0.8;
+}
+
+/* Link 链接按钮 */
+.wry-button.is-link {
+  border-color: transparent;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+/* Disabled 禁用状态 */
+.wry-button.is-disabled,
+.wry-button.is-disabled:hover,
+.wry-button.is-disabled:focus,
+.wry-button[disabled],
+.wry-button[disabled]:hover,
+.wry-button[disabled]:focus {
+  cursor: not-allowed;
+  opacity: 0.6;
+  background-image: none;
+}
+
+/* Loading 加载状态 */
+.wry-button.is-loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.wry-button__loading-icon {
+  display: inline-block;
+  animation: rotating 2s linear infinite;
+}
+
+@keyframes rotating {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Icon & Text */
+.wry-button__icon,
+.wry-button__loading {
+  display: inline-flex;
+  align-items: center;
+}
+
+.wry-button__text {
+  display: inline-flex;
+  align-items: center;
+}

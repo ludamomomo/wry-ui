@@ -1,57 +1,257 @@
-.input-wrapper {
+/* Input 基础样式 */
+.wry-input {
   position: relative;
+  font-size: 14px;
   display: inline-flex;
+  width: 100%;
+  box-sizing: border-box;
   align-items: center;
 }
 
-.input-field,
-.textarea-field {
-  padding: 6px 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+.wry-input__wrapper {
+  position: relative;
+  display: inline-flex;
+  flex: 1;
+  align-items: center;
+  padding: 0 12px;
+  min-height: 34px;
+  background-color: #fff;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 0 0 0 transparent;
+}
+
+.wry-input__wrapper:hover {
+  border-color: #c0c4cc;
+}
+
+.wry-input.is-focus .wry-input__wrapper {
+  border-color: #409eff;
+  box-shadow: 0 0 0 1px rgba(64, 158, 255, 0.2);
+}
+
+.wry-input.is-disabled .wry-input__wrapper {
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  color: #c0c4cc;
+}
+
+/* Input 内部输入框 */
+.wry-input__inner {
+  width: 100%;
+  flex-grow: 1;
+  -webkit-appearance: none;
+  color: #606266;
+  font-size: inherit;
+  height: 32px;
+  line-height: 32px;
+  padding: 0;
   outline: none;
-  font-size: 14px;
-}
-
-.textarea-field {
-  resize: none;
-  min-height: 60px;
-}
-
-/* 不同大小 */
-.input-small .input-field,
-.input-small .textarea-field {
-  font-size: 12px;
-  padding: 4px 8px;
-}
-
-.input-medium .input-field,
-.input-medium .textarea-field {
-  font-size: 14px;
-  padding: 6px 10px;
-}
-
-.input-large .input-field,
-.input-large .textarea-field {
-  font-size: 16px;
-  padding: 8px 12px;
-}
-
-/* 清空按钮 */
-.btn-clear,
-.btn-toggle {
-  position: absolute;
-  right: 8px;
-  background: none;
   border: none;
-  cursor: pointer;
+  background: transparent;
+  box-sizing: border-box;
+}
+
+.wry-input__inner::placeholder {
+  color: #a8abb2;
+}
+
+.wry-input__inner:disabled {
+  cursor: not-allowed;
+  color: #c0c4cc;
+}
+
+/* Textarea */
+.wry-textarea__inner {
+  width: 100%;
+  padding: 5px 11px;
+  color: #606266;
+  font-size: inherit;
+  line-height: 1.5;
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  outline: none;
+  resize: vertical;
+  transition: border-color 0.3s;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.wry-textarea__inner::placeholder {
+  color: #a8abb2;
+}
+
+.wry-textarea__inner:hover {
+  border-color: #c0c4cc;
+}
+
+.wry-textarea__inner:focus {
+  border-color: #409eff;
+}
+
+.wry-textarea__inner:disabled {
+  cursor: not-allowed;
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  color: #c0c4cc;
+}
+
+/* 尺寸 */
+.wry-input--large {
   font-size: 14px;
 }
 
-.btn-clear {
-  color: #999;
+.wry-input--large .wry-input__wrapper {
+  padding: 1px 15px;
+  line-height: 38px;
 }
 
-.btn-toggle {
-  right: 28px;
+.wry-input--large .wry-input__inner {
+  height: 38px;
+  line-height: 38px;
+}
+
+.wry-input--small {
+  font-size: 12px;
+}
+
+.wry-input--small .wry-input__wrapper {
+  padding: 1px 7px;
+  line-height: 22px;
+}
+
+.wry-input--small .wry-input__inner {
+  height: 22px;
+  line-height: 22px;
+}
+
+/* 前置/后置图标 */
+.wry-input__prefix,
+.wry-input__suffix {
+  position: absolute;
+  height: 100%;
+  color: #a8abb2;
+  text-align: center;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wry-input__prefix {
+  left: 11px;
+}
+
+.wry-input__suffix {
+  right: 11px;
+  gap: 6px;
+}
+
+.wry-input--prefix .wry-input__inner {
+  padding-left: 30px;
+}
+
+.wry-input--suffix .wry-input__inner {
+  padding-right: 30px;
+}
+
+.wry-input__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  color: inherit;
+}
+
+.wry-input__clear,
+.wry-input__password {
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.wry-input__clear:hover {
+  color: #909399;
+}
+
+.wry-input.is-disabled .wry-input__icon {
+  cursor: not-allowed;
+}
+
+/* 前置/后置内容 */
+.wry-input-group {
+  display: inline-flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.wry-input-group__prepend,
+.wry-input-group__append {
+  background-color: #f5f7fa;
+  color: #909399;
+  border: 1px solid #dcdfe6;
+  padding: 0 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.wry-input-group__prepend {
+  border-right: 0;
+  border-radius: 4px 0 0 4px;
+}
+
+.wry-input-group__append {
+  border-left: 0;
+  border-radius: 0 4px 4px 0;
+}
+
+.wry-input-group .wry-input__wrapper {
+  border-radius: 0;
+}
+
+.wry-input-group:has(.wry-input-group__prepend) .wry-input__wrapper {
+  border-radius: 0 4px 4px 0;
+}
+
+.wry-input-group:has(.wry-input-group__append) .wry-input__wrapper {
+  border-radius: 4px 0 0 4px;
+}
+
+/* 字数统计 */
+.wry-input__count {
+  position: absolute;
+  right: 11px;
+  bottom: -20px;
+  color: #909399;
+  font-size: 12px;
+  line-height: 1;
+}
+
+.wry-input__count-inner {
+  display: inline-block;
+  line-height: 1;
+}
+
+/* Textarea 字数统计 */
+.wry-input:has(.wry-textarea__inner) .wry-input__count {
+  position: static;
+  display: block;
+  text-align: right;
+  margin-top: 4px;
+}
+
+/* 禁用状态 */
+.wry-input.is-disabled .wry-input__wrapper {
+  background-color: #f5f7fa;
+  border-color: #e4e7ed;
+  cursor: not-allowed;
+}
+
+.wry-input.is-disabled .wry-input__inner {
+  color: #c0c4cc;
+  cursor: not-allowed;
 }

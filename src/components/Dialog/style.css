@@ -1,0 +1,120 @@
+
+.wry-dialog__mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 2000;
+}
+
+.wry-dialog__wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2001;
+}
+
+.wry-dialog {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow:
+    0 12px 32px 4px rgba(0, 0, 0, 0.04),
+    0 8px 20px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.wry-dialog__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.wry-dialog__title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #303133;
+  line-height: 1;
+}
+
+.wry-dialog__close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: #909399;
+  border-radius: 4px;
+  transition: all 0.3s;
+  padding: 0;
+}
+
+.wry-dialog__close:hover {
+  background-color: #f5f7fa;
+  color: #409eff;
+}
+
+.wry-dialog__close-icon {
+  font-size: 16px;
+  line-height: 1;
+}
+
+.wry-dialog__body {
+  flex: 1;
+  padding: 20px;
+  overflow: auto;
+  color: #606266;
+  font-size: 14px;
+}
+
+.wry-dialog__footer {
+  padding: 20px;
+  border-top: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.wry-dialog-fade-enter-active,
+.wry-dialog-fade-leave-active {
+  transition: opacity 0.3s;
+}
+
+.wry-dialog-fade-enter-from,
+.wry-dialog-fade-leave-to {
+  opacity: 0;
+}
+
+.wry-dialog-zoom-enter-active {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-dialog-zoom-leave-active {
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.wry-dialog-zoom-enter-from {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.wry-dialog-zoom-leave-to {
+  opacity: 0;
+  transform: scale(0.9);
+}

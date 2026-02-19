@@ -1,0 +1,151 @@
+/* Message 基础样式 */
+.wry-message {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  min-width: 380px;
+  padding: 15px 15px 15px 20px;
+  background-color: #edf2fc;
+  border: 1px solid #ebeef5;
+  border-radius: 4px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  transition: opacity 0.3s, transform 0.3s, top 0.4s;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* 消息图标 */
+.wry-message__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-right: 10px;
+  font-size: 16px;
+  flex-shrink: 0;
+}
+
+/* 消息内容 */
+.wry-message__content {
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+  font-size: 14px;
+  color: #606266;
+}
+
+/* 关闭按钮 */
+.wry-message__close {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  margin-left: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  color: #909399;
+  padding: 0;
+  transition: color 0.3s;
+}
+
+.wry-message__close:hover {
+  color: #606266;
+}
+
+/* 居中样式 */
+.wry-message.is-center {
+  justify-content: center;
+}
+
+.wry-message.is-center .wry-message__content {
+  text-align: center;
+}
+
+/* Success 类型 */
+.wry-message--success {
+  background-color: #f0f9ff;
+  border-color: #c6e2ff;
+}
+
+.wry-message--success .wry-message__icon {
+  color: #67c23a;
+}
+
+.wry-message--success .wry-message__content {
+  color: #67c23a;
+}
+
+/* Warning 类型 */
+.wry-message--warning {
+  background-color: #fdf6ec;
+  border-color: #f5dab1;
+}
+
+.wry-message--warning .wry-message__icon {
+  color: #e6a23c;
+}
+
+.wry-message--warning .wry-message__content {
+  color: #e6a23c;
+}
+
+/* Error 类型 */
+.wry-message--error {
+  background-color: #fef0f0;
+  border-color: #fbc4c4;
+}
+
+.wry-message--error .wry-message__icon {
+  color: #f56c6c;
+}
+
+.wry-message--error .wry-message__content {
+  color: #f56c6c;
+}
+
+/* Info 类型 */
+.wry-message--info {
+  background-color: #f4f4f5;
+  border-color: #e9e9eb;
+}
+
+.wry-message--info .wry-message__icon {
+  color: #909399;
+}
+
+.wry-message--info .wry-message__content {
+  color: #909399;
+}
+
+/* 动画效果 */
+@keyframes wry-message-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes wry-message-fade-out {
+  0% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(-20px);
+  }
+}
+
+

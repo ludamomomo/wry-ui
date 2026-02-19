@@ -1,17 +1,111 @@
-.collapse-container {
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+/* Collapse 容器 */
+.wry-collapse {
+  border-top: 1px solid #dcdfe6;
+  border-bottom: 1px solid #dcdfe6;
 }
 
-.collapse-header {
-  background-color: #f1f1f1;
-  padding: 10px;
+/* Collapse 项 */
+.wry-collapse-item {
+  border-bottom: 1px solid #dcdfe6;
+}
+
+.wry-collapse-item:last-child {
+  border-bottom: none;
+}
+
+/* Collapse 头部 */
+.wry-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 48px;
+  line-height: 48px;
+  background-color: #fff;
+  color: #303133;
   cursor: pointer;
-  font-weight: bold;
+  padding: 0 16px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-bottom-color 0.3s;
+  outline: none;
+  user-select: none;
 }
 
-.collapse-content {
-  padding: 10px;
-  background-color: #fafafa;
+.wry-collapse-item__header:hover {
+  color: #409eff;
+}
+
+.wry-collapse-item__header.is-active {
+  color: #409eff;
+}
+
+.wry-collapse-item__header.is-disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+.wry-collapse-item__header.is-disabled:hover {
+  color: #c0c4cc;
+}
+
+/* Collapse 标题 */
+.wry-collapse-item__title {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Collapse 箭头 */
+.wry-collapse-item__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  font-size: 12px;
+  margin-left: auto;
+  transition: transform 0.3s;
+  transform: rotate(0deg);
+}
+
+.wry-collapse-item__arrow.is-active {
+  transform: rotate(90deg);
+}
+
+/* Collapse 内容包装 */
+.wry-collapse-item__wrap {
+  will-change: height;
+  background-color: #fff;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+/* Collapse 内容 */
+.wry-collapse-item__content {
+  padding: 16px;
+  color: #606266;
+  font-size: 13px;
+  line-height: 1.7692307692;
+}
+
+/* Collapse 过渡动画 */
+.wry-collapse-transition-enter-active {
+  transition: all 0.3s ease-out;
+}
+
+.wry-collapse-transition-leave-active {
+  transition: all 0.3s ease-in;
+}
+
+.wry-collapse-transition-enter-from,
+.wry-collapse-transition-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.wry-collapse-transition-enter-to,
+.wry-collapse-transition-leave-from {
+  max-height: 500px;
+  opacity: 1;
 }

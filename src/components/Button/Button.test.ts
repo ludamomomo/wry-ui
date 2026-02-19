@@ -13,7 +13,7 @@ describe('Button.vue', () => {
       }
     })
     expect(wrapper.classes()).toContain('btn-primary')
-
+    //@ts-ignore
     wrapper.setProps({ type: 'secondary' })
     expect(wrapper.classes()).toContain('btn-secondary')
   })

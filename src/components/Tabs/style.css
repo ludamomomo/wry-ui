@@ -1,31 +1,183 @@
-.tabs-container {
-  width: 100%;
-}
-.tabs {
-  position: relative;
+/* Tabs 容器 */
+.wry-tabs {
   display: flex;
-  border-bottom: 1px solid #ccc;
+  flex-direction: column;
 }
-.tabs button {
-  padding: 10px 20px;
-  margin-right: 5px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  font-size: 16px;
-  color: #333;
+
+/* Tabs 头部 */
+.wry-tabs__header {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+/* Tabs 导航 */
+.wry-tabs__nav {
+  display: flex;
+  align-items: center;
   position: relative;
 }
-.tabs button.active {
-  color: #007bff;
+
+/* Tabs 项 */
+.wry-tabs__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 20px;
+  height: 40px;
+  box-sizing: border-box;
+  line-height: 40px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #303133;
+  position: relative;
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+  white-space: nowrap;
 }
-.indicator {
+
+.wry-tabs__item:hover {
+  color: #409eff;
+}
+
+.wry-tabs__item.is-active {
+  color: #409eff;
+}
+
+.wry-tabs__item.is-disabled {
+  color: #c0c4cc;
+  cursor: not-allowed;
+}
+
+.wry-tabs__item.is-disabled:hover {
+  color: #c0c4cc;
+}
+
+/* Tabs 项标签 */
+.wry-tabs__item-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Tabs 项图标 */
+.wry-tabs__item-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 16px;
+}
+
+/* Tabs 项关闭按钮 */
+.wry-tabs__item-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+  margin-left: 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  transition: all 0.3s;
+  opacity: 0.6;
+}
+
+.wry-tabs__item-close:hover {
+  background-color: #c0c4cc;
+  color: #fff;
+  opacity: 1;
+}
+
+/* 活动指示器 */
+.wry-tabs__active-bar {
   position: absolute;
-  bottom: -1px;
+  bottom: 0;
+  left: 0;
   height: 2px;
-  background: #007bff;
-  transition: left 0.3s ease, width 0.3s ease;
+  background-color: #409eff;
+  z-index: 1;
 }
-.tab-content {
-  padding: 20px;
+
+/* Tabs 内容 */
+.wry-tabs__content {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Tabs 面板 */
+.wry-tabs__pane {
+  padding: 0;
+}
+
+/* Line 类型 */
+.wry-tabs--line .wry-tabs__header {
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.wry-tabs--line .wry-tabs__item {
+  border-bottom: 2px solid transparent;
+}
+
+.wry-tabs--line .wry-tabs__item.is-active {
+  border-bottom-color: #409eff;
+}
+
+/* Card 类型 */
+.wry-tabs--card .wry-tabs__header {
+  border-bottom: 1px solid #e4e7ed;
+}
+
+.wry-tabs--card .wry-tabs__nav {
+  gap: 2px;
+}
+
+.wry-tabs--card .wry-tabs__item {
+  border: 1px solid transparent;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  transition: all 0.3s;
+}
+
+.wry-tabs--card .wry-tabs__item.is-active {
+  background-color: #fff;
+  border-color: #e4e7ed;
+  border-bottom-color: #fff;
+}
+
+.wry-tabs--card .wry-tabs__item:not(.is-active):hover {
+  background-color: #f5f7fa;
+}
+
+/* Border Card 类型 */
+.wry-tabs--border-card {
+  border: 1px solid #dcdfe6;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.12), 0 0 6px 0 rgba(0, 0, 0, 0.04);
+}
+
+.wry-tabs--border-card .wry-tabs__header {
+  background-color: #f5f7fa;
+  border-bottom: 1px solid #e4e7ed;
+  margin: 0;
+}
+
+.wry-tabs--border-card .wry-tabs__nav {
+  gap: -1px;
+}
+
+.wry-tabs--border-card .wry-tabs__item {
+  border-right: 1px solid #dcdfe6;
+  transition: all 0.3s;
+}
+
+.wry-tabs--border-card .wry-tabs__item:first-child {
+  border-left: none;
+}
+
+.wry-tabs--border-card .wry-tabs__item.is-active {
+  background-color: #fff;
+  color: #409eff;
+}
+
+.wry-tabs--border-card .wry-tabs__content {
+  padding: 15px;
 }
