@@ -1,20 +1,25 @@
 {
   "name": "wry-ui",
   "private": false,
-  "version": "1.0.5",
+  "version": "1.0.10",
   "type": "module",
+  "files": [
+    "dist"
+  ],
   "main": "dist/wry-ui.umd.js",
   "module": "dist/wry-ui.es.js",
   "types": "dist/wry-ui.d.ts",
   "exports": {
     ".": {
       "import": "./dist/wry-ui.es.js",
-      "require": "./dist/wry-ui.umd.js"
-    }
+      "require": "./dist/wry-ui.umd.js",
+      "types": "./dist/wry-ui.d.ts"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc -b && vite build",
+    "build": "vue-tsc -b && vite build && cp types/wry-ui.d.ts dist/ && rm -f dist/vite.svg",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -28,10 +33,15 @@
     "@vitejs/plugin-vue": "^6.0.1",
     "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.7.0",
+    "cssnano": "^7.1.2",
     "eslint": "^9.33.0",
     "jsdom": "^26.1.0",
+    "postcss": "^8.5.6",
+    "rollup-plugin-visualizer": "^6.0.5",
+    "terser": "^5.46.0",
     "typescript": "^5.1.1",
     "vite": "^5.1.2",
+    "vite-plugin-dts": "^4.5.4",
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4",
     "vue-tsc": "^3.0.5"
